@@ -9,6 +9,12 @@ class RecipeModelTest(RecipeTestBase):
         self.recipe = self.make_recipe()
         return super().setUp()
 
+    def test_recipe_recipe_model_representation_is_title_field(self):
+        self.assertEqual(
+            str(self.recipe),
+            self.recipe.title
+        )
+
     def make_recipe_no_defaults(self):
         recipe = Recipe(
             category=self.make_category(name='Test Default Category'),

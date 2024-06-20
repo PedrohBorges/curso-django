@@ -10,6 +10,7 @@ def register_view(request):
     form = RegisterForm(register_form_data)
     return render(request, 'authors/pages/register_view.html', {
         'form': form,
+        'form_action': reverse('authors:create'),
     })
 
 
@@ -28,6 +29,6 @@ def register_create(request):
         messages.success(request, 'Your user is created, please log in.')
 
         del (request.session['register_form_data'])
-        return redirect(reverse('authors:login'))
+        # return redirect(reverse('authors:login'))
 
     return redirect('authors:register')
